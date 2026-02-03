@@ -1,6 +1,6 @@
 # ADB Dissector Plugin
 
-## Backgroud
+## Background
 
 I'm working on a tool related with ADB, and I need to troubleshot a data transferring issue with WireShark.  Firstly I decoded the binary data manually and found it was too tedious and not quite straight to view. So
 
@@ -16,6 +16,18 @@ It was when I almost finished my plugin and got some useful information that I f
   * I believe the following mismatch is a bug that the built-in plugin tries to match the data length and length field of the confirm OKAY packet by wrong
 
   ![builtin_adb.png](builtin_adb.png)
+
+## Features
+
+* Full ADB protocol support: CNXN, AUTH, STLS, OPEN, OKAY, CLSE, WRTE
+* CNXN banner parsing (device type, serial, banner)
+* AUTH type decoding (TOKEN, SIGNATURE, RSAPUBLICKEY)
+* Shell command extraction
+* Sync protocol detection (STAT, LIST, SEND, RECV, etc.)
+* Magic/checksum validation with expert info
+* USB heuristic dissector for auto-detection
+
+  ![shell_cmd_ext.png](shell_cmd_ext.png)
 
 ## Usage
 
